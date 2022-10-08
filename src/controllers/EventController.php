@@ -8,4 +8,10 @@ class EventController extends AppController
     {
         $this->render('events');
     }
+    
+    public function addEvent() {
+    
+    
+        return $this->render('add-event');
+    }
 }

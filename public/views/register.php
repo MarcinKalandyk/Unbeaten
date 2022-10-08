@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/login.css">
-    <title>Logowanie</title>
+    <title>Rejestracja</title>
 </head>
 
 <body>
@@ -16,11 +16,19 @@
         <form method="POST">
             
             <div class="form-control">
+                <input type="text" placeholder="name" id="name" name="name" required value="<?php echo $_POST['name'] ?>">
+            </div>
+            
+            <div class="form-control">
                 <input type="text" placeholder="email" id="email" name="email" required value="<?php echo $_POST['email'] ?>">
             </div>
 
             <div class="form-control">
-                <input type="password" placeholder="password" id="password" name="password" required>
+                <input type="password" placeholder="password" id="password" name="password" required >
+            </div>
+
+            <div class="form-control">
+                <input type="password" placeholder="re-enter password" id="confirmedPassword" name="confirmedPassword" required>
             </div>
             
             <div class="form-errors">
@@ -33,8 +41,7 @@
                 ?>
             </div>
 
-            <a href="/register">Zarejestruj się</a>
-            <button type="submit">Login</button>
+            <button type="submit">Regsiter</button>
         </form>
     </div>
 
