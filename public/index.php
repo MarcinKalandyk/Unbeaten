@@ -9,5 +9,7 @@ Router::get('', 'DefaultController');
 Router::get('projects', 'DefaultController');
 Router::post('login', 'SecurityController');
 
+Router::get('events', 'EventController');
+
 
 Router::run($path);
