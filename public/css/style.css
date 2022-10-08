@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
 html {
 	height: 100%;
 	position: relative;
 	min-width: 375px;
+	font-family: 'Play', sans-serif;
+
 }
 
 body {
@@ -9,14 +13,20 @@ body {
 	background-image: linear-gradient(0deg, rgba(27, 104, 132, 1) 0%, rgba(0, 0, 0, 1) 100%);
 	min-height: 500px;
 	min-width: 375px;
+
 }
 
 .base-container {
 	padding: 50px;
+
 }
 
 @media (max-width: 992px) {
 	.base-container {
 		padding: 20px;
 	}
+}
+
+h1 {
+	color: #ff7800;
 }
