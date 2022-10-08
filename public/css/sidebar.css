@@ -1,0 +1,21 @@
+#sidebar {
+	padding: 20px;
+	width: 300px;
+
+}
+
+#sidebar .link {
+	padding: 20px 0;
+}
+
+#sidebar a {
+	color: #a6a699;
+	text-decoration: none;
+
+}
+
+#sidebar i {
+	color: #ff7800;
+	width: 50px;
+	text-align: center;
+}
