@@ -1,22 +1,9 @@
-.base-container {
-	position: relative;
-	width: auto;
-	display: flex;
-}
-
 form {
 	width: 100%;
 	position: relative;
 }
 
-.row {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	column-gap: 20px;
-	position: relative;
-	width: 100%;
-}
+
 
 button {
 	width: 100%;
@@ -42,7 +29,6 @@ button:hover {
 
 
 .form-event {
-	background: rgba(64, 131, 157, 0.75);
 	padding: 20px;
 	position: relative;
 }

@@ -1,10 +1,5 @@
 <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
 
-
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
-
-
 <div id="sidebar">
     
     <div class="link">
@@ -22,7 +17,7 @@
     </div>
 
     <div class="link">
-        <a href="">
+        <a href="/addEvent">
             <i class="fa-solid fa-plus fa-2xl"></i>
             Add Tournament
         </a>
@@ -40,7 +35,7 @@
 
     <div class="link">
         <i class="fa-solid fa-right-from-bracket fa-2xl"></i>
-        <a href="">Logout</a>
+        <a href="/login">Logout</a>
     </div>
     
 </div>
