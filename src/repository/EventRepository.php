@@ -44,4 +44,20 @@ class EventRepository extends Repository
         
         return $events;
     }
+    
+    public function getEventByTitle(string $searchString)
+    {
+        $searchString = '%' . strtolower($searchString) . '%';
+        
+        $stmt = $this->database->connect()->prepare('
+            SELECT e.*, g.name AS game FROM events AS e
+            JOIN games AS g ON g.id = e.game_id
+            WHERE LOWER(e.name) LIKE :search OR LOWER(g.name) LIKE :search
+        ');
+        $str = '%' . $searchString . '%';
+        $stmt->bindParam(':search', $str, PDO::PARAM_STR);
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
