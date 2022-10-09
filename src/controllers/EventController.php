@@ -26,7 +26,11 @@ class EventController extends AppController
     
     public function events()
     {
-        $this->render('events');
+        $events = $this->eventRepository->getEvetns();
+        
+        $this->render('events', [
+            'events' => $events
+        ]);
     }
     
     public function addEvent()

@@ -86,7 +86,7 @@
         
     </form>
     
-    <?php include 'views/sidebar.php' ?>
+    <?php include 'views/partials/sidebar.php' ?>
 </div>
 
 

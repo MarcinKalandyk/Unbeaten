@@ -2,11 +2,28 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/events.css">
-    <title>LOGIN</title>
+
+    <title>PROJECTS</title>
 </head>
 
 <body>
+
+
+<?php include 'views/partials/navbar.php' ?>
+
 <div class="base-container">
-    events
+    
+    <div class="main">
+        <?php
+        /** @var array $events */
+        foreach ($events as $event) {
+            include 'views/partials/event.php';
+        }
+        ?>
+    </div>
+    
+    <?php include 'views/partials/sidebar.php' ?>
 </div>
+
+
 </body>
