@@ -35,7 +35,7 @@
 
     <div class="link">
         <i class="fa-solid fa-right-from-bracket fa-2xl"></i>
-        <a href="/login">Logout</a>
+        <a href="/logout">Logout</a>
     </div>
     
 </div>

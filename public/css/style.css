@@ -45,6 +45,10 @@ h1 {
 	color: #ff7800;
 }
 
+i {
+	color: #ff7800!important;
+}
+
 hr {
 	border: none;
 	border-top: 1px solid #d4dbdf;
@@ -61,4 +65,23 @@ hr {
 	column-gap: 20px;
 	position: relative;
 	width: 100%;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table th{
+	text-align: left;
+}
+
+table, th, td {
+	border: 1px solid;
+	padding: 5px;
 }

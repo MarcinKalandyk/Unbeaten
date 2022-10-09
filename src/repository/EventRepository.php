@@ -26,6 +26,26 @@ class EventRepository extends Repository
         ]);
     }
     
+    public function getEvent($id)
+    {
+        
+        $stmt = $this->database->connect()->prepare('
+            SELECT e.*, g.name AS game FROM events AS e
+            JOIN games AS g ON g.id = e.game_id
+            WHERE e.id = ?
+        ');
+        
+        $stmt->execute([$id]);
+        
+        $event = $stmt->fetch();
+        
+        if ($event == false) {
+            return null;
+        }
+        
+        return $event;
+    }
+    
     public function getEvetns()
     {
         

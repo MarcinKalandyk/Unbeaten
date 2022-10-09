@@ -3,8 +3,10 @@
 require_once 'AppController.php';
 require_once __DIR__ . '/../models/Game.php';
 require_once __DIR__ . '/../models/Event.php';
+require_once __DIR__ . '/../models/UserEvents.php';
 require_once __DIR__ . '/../repository/GameRepository.php';
 require_once __DIR__ . '/../repository/EventRepository.php';
+require_once __DIR__ . '/../repository/UserEventsRepository.php';
 
 class EventController extends AppController
 {
@@ -14,6 +16,7 @@ class EventController extends AppController
     
     private GameRepository $gameRepository;
     private EventRepository $eventRepository;
+    private UserEventsRepository $userEventsRepository;
     
     private $message = [];
     
@@ -22,6 +25,7 @@ class EventController extends AppController
         parent::__construct();
         $this->gameRepository = new GameRepository();
         $this->eventRepository = new EventRepository();
+        $this->userEventsRepository = new UserEventsRepository();
     }
     
     public function events()
@@ -95,6 +99,43 @@ class EventController extends AppController
             echo json_encode($this->eventRepository->getEventByTitle($decoded['search']));
         }
         
+    }
+    
+    public function details() {
+    
+        $user = $_SESSION['user'];
+        
+        $event = $this->eventRepository->getEvent($_GET['id']);
+    
+        $users = $this->userEventsRepository->getUsersForEvent($_GET['id']);
+        
+        $isSigned = $this->userEventsRepository->userIsSigned($_GET['id'], $user->getId());
+        
+        $this->render('details', [
+            'event' => $event,
+            'users' => $users,
+            'is_signed' => $isSigned
+        ]);
+    }
+    
+    public function join() {
+        
+        $user = $_SESSION['user'];
+        
+        $this->userEventsRepository->add($user->getId(), $_GET['id']);
+    
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/details/?id=" . $_GET['id']);
+    }
+    
+    public function withdraw() {
+        
+        $user = $_SESSION['user'];
+        
+        $this->userEventsRepository->remove($user->getId(), $_GET['id']);
+    
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/details/?id=" . $_GET['id']);
     }
     
     private function validate(array $file): bool

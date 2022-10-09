@@ -59,5 +59,8 @@ function createProject(event) {
     const fee = clone.querySelector(".fee");
     fee.innerHTML = event.fee;
 
+    const a = clone.querySelector("a");
+    a.setAttribute('href', '/details/?id=' + event.id);
+
     projectContainer.appendChild(clone);
 }

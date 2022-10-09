@@ -37,9 +37,18 @@ class SecurityController extends AppController
         if ($user->getPassword() !== $password) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
+        
+        $_SESSION['user'] = $user;
     
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/events");
+    }
+    
+    public function logout() {
+        session_destroy();
+    
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/login");
     }
     
     public function register()

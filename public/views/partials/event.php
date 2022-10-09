@@ -17,7 +17,11 @@
                     <?php echo $event['address'] ?> <br>
                 </div>
                 <div class="column">
-                    <button>Show</button>
+                    <button>
+                        <a href="/details/?id=<?php echo $event['id'] ?>">
+                            Show
+                        </a>
+                    </button>
                 </div>
             </div>
             
