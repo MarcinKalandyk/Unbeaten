@@ -2,6 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/add-event.css">
+    <link rel="stylesheet" type="text/css" href="../js/add-event.js">
 
     <title>PROJECTS</title>
 </head>

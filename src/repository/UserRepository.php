@@ -52,6 +52,7 @@ class UserRepository extends Repository
 
     public function addUser(User $user)
     {
+        
         $stmt = $this->database->connect()->prepare('
             INSERT INTO users (name, email, password)
             VALUES (?, ?, ?)
@@ -60,7 +61,7 @@ class UserRepository extends Repository
         $stmt->execute([
             $user->getName(),
             $user->getEmail(),
-            $user->getPassword(),
+            password_hash($user->getPassword(), PASSWORD_BCRYPT),
         ]);
     }
 

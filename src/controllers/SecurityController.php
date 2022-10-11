@@ -22,7 +22,6 @@ class SecurityController extends AppController
         }
     
         $email = $_POST['email'];
-        $password = md5($_POST['password']);
     
         $user = $this->userRepository->getUser($email);
     
@@ -34,7 +33,7 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
     
-        if ($user->getPassword() !== $password) {
+        if ( password_verify($_POST['password'], $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
         
