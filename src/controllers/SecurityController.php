@@ -66,8 +66,7 @@ class SecurityController extends AppController
             return $this->render('register', ['messages' => ['Passwords do not match']]);
         }
         
-        //TODO try to use better hash function
-        $user = new User($email, md5($password), $name);
+        $user = new User(null, $email, md5($password), $name);
         
         $this->userRepository->addUser($user);
     

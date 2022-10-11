@@ -8,7 +8,7 @@ class User {
     private $name;
 
     public function __construct(
-        string $id,
+        $id,
         string $email,
         string $password,
         string $name
