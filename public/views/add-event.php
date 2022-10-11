@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/add-event.css">
-    <link rel="stylesheet" type="text/css" href="../js/add-event.js">
+    <script type="text/javascript" src="../js/add-event.js" defer></script>
 
     <title>PROJECTS</title>
 </head>
@@ -84,7 +84,7 @@
                     ?>
                 </div>
 
-                <button type="submit">Save</button>
+                <button type="submit" id="submit">Save</button>
             </div>
 
 

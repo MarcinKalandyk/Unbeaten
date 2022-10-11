@@ -85,3 +85,8 @@ table, th, td {
 	border: 1px solid;
 	padding: 5px;
 }
+
+.no-valid {
+	color: red!important;
+	border-color: red!important;
+}

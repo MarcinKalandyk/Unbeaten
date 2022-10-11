@@ -65,7 +65,7 @@ class SecurityController extends AppController
             return $this->render('register', ['messages' => ['Passwords do not match']]);
         }
         
-        $user = new User(null, $email, md5($password), $name);
+        $user = new User(null, $email, password_hash($password, PASSWORD_BCRYPT), $name);
         
         $this->userRepository->addUser($user);
     

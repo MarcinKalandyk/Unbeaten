@@ -16,7 +16,7 @@
         <form method="POST">
             
             <div class="form-control">
-                <input type="text" placeholder="email" id="email" name="email" required value="<?php echo $_POST['email'] ?>">
+                <input type="email" placeholder="email" id="email" name="email" required value="<?php echo $_POST['email'] ?>">
             </div>
 
             <div class="form-control">
