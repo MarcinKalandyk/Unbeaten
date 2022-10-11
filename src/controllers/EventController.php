@@ -22,6 +22,7 @@ class EventController extends AppController
     
     public function __construct()
     {
+        
         parent::__construct();
         $this->gameRepository = new GameRepository();
         $this->eventRepository = new EventRepository();
@@ -55,13 +56,12 @@ class EventController extends AppController
                 }
             }
             
-           
             $event->setName($_POST['name']);
             $event->setAddress($_POST['address']);
             $event->setGameId($_POST['game_id']);
             $event->setPrize($_POST['prize']);
             $event->setFee($_POST['fee']);
-            $event->setOwnerId($_POST['owner_id']);
+            $event->setOwnerId($_SESSION['user']->getId());
             $event->setDate($_POST['date']);
             $event->setMatchType($_POST['match_type']);
             
@@ -150,5 +150,22 @@ class EventController extends AppController
             return false;
         }
         return true;
+    }
+    
+    public function delete() {
+    
+        $event = $this->eventRepository->getEvent($_GET['id']);
+        
+        if ($_SESSION['user']->getRoleId() != 1) {
+            if ($event['owner_id'] != $_SESSION['user']->getId()) {
+                $url = "http://$_SERVER[HTTP_HOST]";
+                header("Location: {$url}/events/");
+            }
+        }
+        
+        $this->eventRepository->remove($_GET['id']);
+    
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/events/");
     }
 }

@@ -16,12 +16,22 @@
                     <?php echo $event['date'] ?> <br>
                     <?php echo $event['address'] ?> <br>
                 </div>
-                <div class="column">
-                    <button>
+                <div class="column" style="width: 140px">
+                    
+                    
+                    <button style="margin-bottom: 5px">
                         <a href="/details/?id=<?php echo $event['id'] ?>">
                             Show
                         </a>
                     </button>
+
+                    <?php if ($_SESSION['user']->getRoleId() == 1 OR $event['owner_id'] == $_SESSION['user']->getId()) { ?>
+                    <button>
+                        <a href="/delete/?id=<?php echo $event['id'] ?>">
+                            Delete
+                        </a>
+                    </button>
+                    <?php } ?>
                 </div>
             </div>
             

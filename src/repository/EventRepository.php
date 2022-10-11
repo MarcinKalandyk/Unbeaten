@@ -19,7 +19,7 @@ class EventRepository extends Repository
             $event->getGameId(),
             $event->getPrize(),
             $event->getFee(),
-            1,
+            $event->getOwnerId(),
             $event->getImage(),
             $event->getDate(),
             $event->getMatchType(),
@@ -52,7 +52,10 @@ class EventRepository extends Repository
         $stmt = $this->database->connect()->prepare('
             SELECT e.*, g.name AS game FROM events AS e
             JOIN games AS g ON g.id = e.game_id
+            ORDER BY owner_id = :user DESC
         ');
+        
+        $stmt->bindParam(':user', $_SESSION['user']->getId());
         
         $stmt->execute();
         
@@ -79,5 +82,16 @@ class EventRepository extends Repository
         $stmt->execute();
         
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    public function remove($id)
+    {
+        $stmt = $this->database->connect()->prepare('
+            DELETE FROM events WHERE id = ?
+        ');
+        
+        $stmt->execute([
+            $id
+        ]);
     }
 }

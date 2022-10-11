@@ -20,6 +20,7 @@ if (!empty($_SESSION['user'])) {
     Router::post('details', 'EventController');
     Router::get('join', 'EventController');
     Router::get('withdraw', 'EventController');
+    Router::get('delete', 'EventController');
 }
 
 Router::run($path);
