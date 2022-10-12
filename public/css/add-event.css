@@ -100,3 +100,10 @@ button:hover {
 	color: #ff7800;
 	font-weight: bold;
 }
+
+@media (max-width: 991px) {
+	.form-event .row {
+		display: block;
+	}
+
+}

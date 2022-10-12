@@ -59,15 +59,29 @@
 
 
 .event button {
-	width: 100%;
 	padding: 10px 30px;
 	border: none;
 	background: #ff7800;
 	border-radius: 30px;
 	color: #f1f9ff;
 	text-transform: uppercase;
+	width: 140px;
 }
 
 
 
+
+@media (max-width: 991px) {
+	.main .event:not(:last-of-type) {
+		margin-bottom: 20px;
+	}
+
+	.event .row {
+		display: block;
+	}
+
+	.event {
+		text-align: center;
+	}
+}
 

@@ -19,3 +19,24 @@
 	width: 50px;
 	text-align: center;
 }
+
+@media (max-width: 1199px) {
+
+	#sidebar span{
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 991px) {
+
+
+
+	#sidebar {
+		padding: 5px;
+		width: auto!important;
+	}
+
+	#sidebar span{
+		display: none;
+	}
+}

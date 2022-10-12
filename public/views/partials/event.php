@@ -16,7 +16,7 @@
                     <?php echo $event['date'] ?> <br>
                     <?php echo $event['address'] ?> <br>
                 </div>
-                <div class="column" style="width: 140px">
+                <div class="column" >
                     
                     
                     <button style="margin-bottom: 5px">
