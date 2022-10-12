@@ -20,32 +20,33 @@ class SecurityController extends AppController
         if (!$this->isPost()) {
             return $this->render('login');
         }
-    
+        
         $email = $_POST['email'];
-    
+        
         $user = $this->userRepository->getUser($email);
-    
+        
         if (!$user) {
             return $this->render('login', ['messages' => ['User not found!']]);
         }
-    
+        
         if ($user->getEmail() !== $email) {
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
-    
-        if ( password_verify($_POST['password'], $user->getPassword())) {
+        
+        if (!password_verify($_POST['password'], $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
         
         $_SESSION['user'] = $user;
-    
+        
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/events");
     }
     
-    public function logout() {
+    public function logout()
+    {
         session_destroy();
-    
+        
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/login");
     }
@@ -65,10 +66,10 @@ class SecurityController extends AppController
             return $this->render('register', ['messages' => ['Passwords do not match']]);
         }
         
-        $user = new User(null, $email, password_hash($password, PASSWORD_BCRYPT), $name);
+        $user = new User(null, $email, $password, $name);
         
         $this->userRepository->addUser($user);
-    
+        
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/login");
         
